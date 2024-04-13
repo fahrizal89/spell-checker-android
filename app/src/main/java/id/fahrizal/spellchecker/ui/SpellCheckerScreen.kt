@@ -23,8 +23,8 @@ fun SpellCheckerScreen(
         DebounceTextField(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(8.dp, 2.dp, 8.dp, 2.dp),
-            label = stringResource(id = R.string.search_city),
+                .padding(8.dp, 10.dp, 8.dp, 2.dp),
+            label = stringResource(id = R.string.search_food),
             onTextChanged = { text ->
                 viewModel.search(text)
             },
@@ -32,14 +32,14 @@ fun SpellCheckerScreen(
         )
 
         Text(
-            modifier = Modifier.padding(start = 8.dp),
-            text = stringResource(id = R.string.city) +" :"
+            modifier = Modifier.padding(start = 8.dp, top = 8.dp),
+            text = stringResource(id = R.string.food) +" :"
         )
 
         when (val state = viewModel.uiState.collectAsState().value) {
             is SpellCheckerViewModel.SpellCheckerUiState.Loaded -> {
                 Text(
-                    modifier = Modifier.padding(start = 8.dp),
+                    modifier = Modifier.padding(start = 8.dp, top = 8.dp),
                     fontSize = MaterialTheme.typography.h5.fontSize,
                     text = state.city
                 )
