@@ -15,8 +15,6 @@ class GetCity @Inject constructor(
         cityManager.getCities().forEach { city->
             val different = SpellChecker.differentiate(text, city)
 
-            if(different <3) return city
-
             if(different < nearest.first){
                 nearest = Pair(different, city)
             }
