@@ -19,11 +19,14 @@ class SpellCheckerViewModel @Inject constructor(
     val uiState: StateFlow<SpellCheckerUiState> = _uiState
 
     fun search(text: String) {
-        if(text.length < 4) return
-
         viewModelScope.launch(Dispatchers.IO) {
-            val result = getCity.invoke(text)
-            _uiState.value = SpellCheckerUiState.Loaded(result)
+            if(text.length < 4) {
+                _uiState.value = SpellCheckerUiState.Loaded(text)
+            }
+            else {
+                val result = getCity.invoke(text)
+                _uiState.value = SpellCheckerUiState.Loaded(result)
+            }
         }
     }
 
