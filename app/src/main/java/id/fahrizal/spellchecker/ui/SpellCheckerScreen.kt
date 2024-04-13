@@ -24,7 +24,7 @@ fun SpellCheckerScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(8.dp, 10.dp, 8.dp, 2.dp),
-            label = stringResource(id = R.string.search_food),
+            label = stringResource(id = R.string.search_city),
             onTextChanged = { text ->
                 viewModel.search(text)
             },
@@ -33,7 +33,7 @@ fun SpellCheckerScreen(
 
         Text(
             modifier = Modifier.padding(start = 8.dp, top = 8.dp),
-            text = stringResource(id = R.string.food) +" :"
+            text = stringResource(id = R.string.city) +" :"
         )
 
         when (val state = viewModel.uiState.collectAsState().value) {

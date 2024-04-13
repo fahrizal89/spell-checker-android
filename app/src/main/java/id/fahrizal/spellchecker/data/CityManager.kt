@@ -5,10 +5,10 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import id.fahrizal.spellchecker.util.JsonUtil
 import javax.inject.Inject
 
-class FoodManager @Inject constructor(
+class CityManager @Inject constructor(
     @ApplicationContext private val context: Context
 ) {
-    private val foods : List<String> = JsonUtil.load(context, "foods.json", List::class.java) as List<String>
+    private val cities : List<String> = JsonUtil.load(context, "city.json", List::class.java) as List<String>
 
-    fun getFoods() = foods
+    fun getCities() = cities
 }

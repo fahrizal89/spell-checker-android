@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Spell Checker</string>
-    <string name="food">Food</string>
-    <string name="search_food">Search Food</string>
+    <string name="city">City</string>
+    <string name="search_city">Find City</string>
 </resources>

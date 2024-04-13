@@ -3,7 +3,7 @@ package id.fahrizal.spellchecker.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import id.fahrizal.spellchecker.domain.GetFood
+import id.fahrizal.spellchecker.domain.GetCity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SpellCheckerViewModel @Inject constructor(
-    private val getFood: GetFood
+    private val getCity: GetCity
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow<SpellCheckerUiState>(SpellCheckerUiState.Loaded())
@@ -22,7 +22,7 @@ class SpellCheckerViewModel @Inject constructor(
         if(text.length < 3) return
 
         viewModelScope.launch(Dispatchers.IO) {
-            val result = getFood.invoke(text)
+            val result = getCity.invoke(text)
             _uiState.value = SpellCheckerUiState.Loaded(result)
         }
     }
