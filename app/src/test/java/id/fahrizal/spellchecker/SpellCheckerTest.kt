@@ -1,5 +1,6 @@
 package id.fahrizal.spellchecker
 
+import id.fahrizal.spellchecker.domain.SpellChecker
 import org.junit.Assert
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package id.fahrizal.spellchecker
+package id.fahrizal.spellchecker.domain
 
 object SpellChecker {
 
