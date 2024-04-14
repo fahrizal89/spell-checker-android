@@ -12,8 +12,13 @@ class GetCity @Inject constructor(
     operator fun invoke(text: String): String {
         val startTime = Date().time
         var nearest = Pair(99,"")
-        cityManager.getCities().forEach { city->
+        for (city in cityManager.getCities()) {
             val different = SpellChecker.differentiate(text, city)
+
+            if(different < 1){
+                nearest = Pair(different, city)
+                break
+            }
 
             if(different < nearest.first){
                 nearest = Pair(different, city)
